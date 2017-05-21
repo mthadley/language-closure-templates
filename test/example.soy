@@ -1,0 +1,58 @@
+{namespace MyTemplate.Namespace.Test}
+{alias Some.Package as MyPackage}
+
+/**
+ * Some Comments
+ * @param asdasd
+ */
+{template .render private="trueasd"}
+	{@param things: list<string>}
+	{@param count: int}
+
+	{let $edit: isNonnull($editContactsCardTemplate) /}
+	{let $myVar: $otherVar /}
+  {let $open: not true /}
+  {let $number: 23 /}
+	{let $test: isNonnull(23) /}
+	{let $function: isNonnull('asdasd') /}
+	{let $null: null /}
+	{let $name: 'soy' /}
+	{let $escapes: 'a\\a\'a\"a\na\ra\ta\ba\fa\u12afa' /}
+
+	{let $myList: [
+		'2312',
+		'124124'
+	] /}
+
+	{let $myMarkup kind="html"}
+		{let $myThing: 23 /}
+	{/let}
+
+	{if $thing}
+		<div>{sp}Foo</div>
+	{elseif}
+		<span>Bar</span>
+	{/if}
+
+	{if true}
+		<div>Foo</div>
+	{/if}
+
+	{$textContent}
+	{print $textContent | truncate:23,true}
+	{print true}
+	{literal}some stuff{/literal}
+
+	{msg desc="asdasdasd"}
+	{fallbackmsg test="asdasd"}
+		asdas-asdasd
+	{/msg}
+
+	{for $i in range(1, 10)}
+	{/for}
+
+	{call thing.render data="all"}
+		/** thing */
+		{param thing: 'foo' /}
+	{/call}
+{/template}
