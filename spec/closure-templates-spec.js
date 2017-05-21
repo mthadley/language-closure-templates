@@ -8,6 +8,7 @@ describe('Closure Templates grammar', () => {
 
   beforeEach(() => {
     waitsForPromise(() => atom.packages.activatePackage('language-closure-templates'))
+    waitsForPromise(() => atom.packages.activatePackage('language-html'))
 
     runs(() => grammar = atom.grammars.grammarForScopeName('text.html.soy'))
   })

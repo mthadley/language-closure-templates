@@ -221,5 +221,15 @@
 //          ^ entity.name.function.soy
 //                          ^ storage.other.attribute.soy
 //                                    ^ variable.other.soy
+
+  <input
+    disabled="{isNonnull($disabled)}"
+//                ^ support.function.soy
+//                          ^ variable.other.soy
+    type="hidden"
+    name="{$hiddenInputName ? $hiddenInputName : ''}"
+//                ^ variable.other.soy
+//                             ^ variable.other.soy
+  />
 {/template}
 // ^ storage.type.soy
