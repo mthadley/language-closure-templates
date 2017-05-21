@@ -1,0 +1,212 @@
+// SYNTAX TEST "text.html.soy"
+{namespace MyTemplate.Namespace.Test}
+// ^ storage.type.soy
+//          ^ entity.name.type.soy
+{alias Some.Package as MyPackage}
+// ^ storage.type.soy
+//      ^ entity.name.type.soy
+//                  ^ storage.type.soy
+//                      ^ entity.name.type.soy
+
+/**
+ * Some Comments
+ * @param asdasd
+ // ^ keyword.parameter.soy
+ //        ^ variable.parameter.soy
+ */
+{template .MyCoolTemplate}
+// ^ storage.type.soy
+//          ^  entity.name.function.soy
+  {@param items: list<string>}
+//  ^ keyword.parameter.soy
+//         ^ variable.parameter.soy
+//                ^ support.type.soy
+//                     ^ support.type.soy
+  {@param count: int}
+//                ^ support.type.soy
+  {@param? showCount: bool}
+//       ^ storage.modifier.keyword.operator.soy
+
+  {let $myNum: 23 /}
+// ^ storage.type.soy
+//      ^ variable.soy
+//             ^ language.constant.numeric
+  {let $isNull: isNonnull($editContactsCardTemplate) /}
+//  ^ storage.type.soy
+//      ^ variable.soy
+//                ^ support.function.soy
+//                            ^ variable.other.soy
+  {let $open: not true /}
+// ^ storage.type.soy
+//      ^ variable.soy
+//            ^ keyword.operator.soy
+//                 ^ language.constant.boolean.soy
+  {let $function: length('asdasd') /}
+// ^ storage.type.soy
+//       ^ variable.soy
+//                  ^ support.function.soy
+//                         ^ string.quoted.single.soy
+  {let $null: null /}
+// ^ storage.type.soy
+//       ^ variable.soy
+//             ^ language.constant.null.soy
+  {let $name: 'soy' /}
+// ^ storage.type.soy
+//       ^ variable.soy
+//             ^ string.quoted.single.soy
+  {let $escapes: 'a\\a\'a\"a\na\ra\ta\ba\fa\u12afa' /}
+// ^ storage.type.soy
+//       ^ variable.soy
+//               ^ string.quoted.single.soy
+//                 ^ constant.character.escape.soy
+//                   ^ string.quoted.single.soy
+//                    ^ constant.character.escape.soy
+
+  {let $myList: [
+// ^ storage.type.soy
+//       ^ variable.soy
+    '2312',
+//    ^ string.quoted.single.soy
+    '124124'
+//    ^ string.quoted.single.soy
+  ] /}
+
+  {let $myMarkup kind="html"}
+// ^ storage.type.soy
+//       ^ variable.soy
+//                ^ storage.other.attribute.soy
+//                      ^ string.double.quoted.soy
+    <div class="test">FooBar</div>
+  {/let}
+//  ^ storage.type.soy
+
+  {if true}
+// ^ keyword.control.soy
+//     ^ language.constant.boolean.soy
+    <div>Foo</div>
+  {/if}
+//  ^ keyword.control.soy
+
+  {$textContent}
+//  ^ variable.other.soy
+
+  {print $textContent | truncate:23,true}
+//  ^ keyword.other.soy
+//         ^ variable.other.soy
+//                        ^ support.function.soy
+//                               ^ language.constant.numeric.soy
+//                                   ^ language.constant.boolean.soy
+
+  {print true}
+//  ^ keyword.other.soy
+//        ^ language.constant.boolean.soy
+
+  {literal}some stuff{/literal}
+//  ^ keyword.other.soy
+//                      ^ keyword.other.soy
+
+  {msg desc="asdasdasd"}
+// ^ keyword.other.soy
+//      ^ storage.other.attribute.soy
+//            ^ string.double.quoted.soy
+    some-message
+  {fallbackmsg test="asdasd"}
+// ^ keyword.other.soy
+//             ^ storage.other.attribute.soy
+//                    ^ string.double.quoted.soy
+    some-fallbacl-message
+  {/msg}
+//   ^ keyword.other.soy
+
+  {for $i in range(1, 10)}
+//  ^ keyword.control.soy
+//     ^ variable.other.soy
+//        ^ keyword.control.soy
+//            ^ support.function.soy
+    <div></div>
+  {/for}
+//  ^ keyword.control.soy
+
+  {call thing.render data="all"}
+//  ^ storage.type.function.soy
+//        ^ entity.name.function.soy
+//                    ^ storage.other.attribute.soy
+//                          ^ string.double.quoted.soy
+    {param thing: 'foo' /}
+//    ^ storage.type.soy
+//          ^ variable.parameter.soy
+//                  ^ string.quoted.single.soy
+    {param showCount: true /}
+//    ^ storage.type.soy
+//          ^ variable.parameter.soy
+//                     ^ language.constant.boolean.soy
+  {/call}
+//  ^ storage.type.function.soy
+
+  {call OtherNamespace.InlineCall /}
+//  ^ storage.type.function.soy
+//        ^ entity.name.function.soy
+
+  {call OtherNamespace.Template}
+//  ^ storage.type.function.soy
+//        ^ entity.name.function.soy
+    {param count: 23 /}
+//    ^ storage.type.soy
+//          ^ variable.parameter.soy
+//                ^ language.constant.numeric.soy
+    {param count kind="html"}
+//    ^ storage.type.soy
+//          ^ variable.parameter.soy
+//                ^ storage.other.attribute.soy
+//                       ^ string.double.quoted.soy
+      <div class="some-content">
+        <h1>Foo</h1>
+
+        {if $showCount}
+//       ^ keyword.control.soy
+//           ^ variable.other.soy
+          {$count}
+//            ^ variable.other.soy
+        {/if}
+//        ^ keyword.control.soy
+      </div>
+    {/param}
+//    ^ storage.type.soy
+  {/call}
+//  ^ storage.type.function.soy
+
+  {switch $thing}
+//  ^ keyword.control.soy
+//        ^ variable.other.soy
+    {case 45}
+//   ^ keyword.control.soy
+//        ^ language.constant.numeric.soy
+      <div></div>
+    {case 56}
+//    ^ keyword.control.soy
+//        ^ language.constant.numeric.soy
+      <div></div>
+    {default}
+//    ^ keyword.control.soy
+  {/switch}
+//    ^ keyword.control.soy
+{/template}
+// ^ storage.type.soy
+
+/**
+ * MyHelper
+//  ^ comment.block.documentation.soy
+ */
+{template .helper private="true"}
+// ^ storage.type.soy
+//           ^  entity.name.function.soy
+//                  ^ storage.other.attribute.soy
+//                          ^ string.double.quoted.soy
+
+  {delcall someDelTemplate variant="$myVariant" /}
+//  ^ storage.type.function.soy
+//          ^ entity.name.function.soy
+//                          ^ storage.other.attribute.soy
+//                                    ^ variable.other.soy
+{/template}
+// ^ storage.type.soy

@@ -139,6 +139,9 @@
           },
           "patterns": [
             {
+              "include": "#comment"
+            },
+            {
               "include": "#variant"
             },
             {
@@ -339,7 +342,7 @@
     },
     "null": {
       "match": "null",
-      "name": "language.constant.soy"
+      "name": "language.constant.null.soy"
     },
     "param": {
       "patterns": [
@@ -461,6 +464,9 @@
           },
           "end": "/}",
           "patterns": [
+            {
+              "include": "#comment"
+            },
             {
               "include": "#expression"
             }
