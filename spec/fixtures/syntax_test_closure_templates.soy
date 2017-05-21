@@ -31,6 +31,14 @@
 // ^ storage.type.soy
 //      ^ variable.soy
 //             ^ language.constant.numeric
+  {let $alias: $myNum /}
+// ^ storage.type.soy
+//      ^ variable.soy
+//             ^ variable.other.soy
+  {let $dotAccess: $someObj.someProp /}
+// ^ storage.type.soy
+//      ^ variable.soy
+//                   ^^^^^^^^^^^ variable.other.soy
   {let $isNull: isNonnull($editContactsCardTemplate) /}
 //  ^ storage.type.soy
 //      ^ variable.soy

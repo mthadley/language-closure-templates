@@ -592,7 +592,7 @@
       ]
     },
     "variable-ref": {
-      "match": "\\$[\\a-zA-Z_]\\w*",
+      "match": "\\$[\\a-zA-Z_][\\w\\.]*",
       "name": "variable.other.soy"
     }
   },
