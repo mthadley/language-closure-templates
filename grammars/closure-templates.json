@@ -113,6 +113,9 @@
         },
         {
           "include": "#print"
+        },
+        {
+          "include": "text.html.basic"
         }
       ]
     },
