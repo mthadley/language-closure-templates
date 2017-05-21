@@ -123,7 +123,12 @@
 //     ^ variable.other.soy
 //        ^ keyword.control.soy
 //            ^ support.function.soy
-    <div></div>
+    <div>
+      {$items[index($i)]}
+//       ^ variable.other.soy
+//             ^ support.function.soy
+//                  ^ variable.other.soy
+    </div>
   {/for}
 //  ^ keyword.control.soy
 

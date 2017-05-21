@@ -272,7 +272,7 @@
       ]
     },
     "function": {
-      "begin": "(\\S+)\\(",
+      "begin": "(\\w+)\\(",
       "beginCaptures": {
         "1": {
           "name": "support.function"
@@ -592,7 +592,7 @@
       ]
     },
     "variable-ref": {
-      "match": "\\$[\\D_]\\w*",
+      "match": "\\$[\\a-zA-Z_]\\w*",
       "name": "variable.other.soy"
     }
   },
