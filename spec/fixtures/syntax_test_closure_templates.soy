@@ -66,13 +66,32 @@
 // ^ storage.type.soy
 //       ^ variable.soy
 //             ^ string.quoted.single.soy
-  {let $escapes: 'a\\a\'a\"a\na\ra\ta\ba\fa\u12afa' /}
+  {let $escapes: 'a\\aa\'aa\"aa\naa\raa' /}
 // ^ storage.type.soy
 //       ^ variable.soy
-//               ^ string.quoted.single.soy
-//                 ^ constant.character.escape.soy
-//                   ^ string.quoted.single.soy
-//                    ^ constant.character.escape.soy
+//               ^^ string.quoted.single.soy
+//                 ^^ constant.character.escape.soy
+//                   ^^ string.quoted.single.soy
+//                     ^^ constant.character.escape.soy
+//                       ^^ string.quoted.single.soy
+//                         ^^ constant.character.escape.soy
+//                           ^^ string.quoted.single.soy
+//                             ^^ constant.character.escape.soy
+//                               ^^ string.quoted.single.soy
+//                                 ^^ constant.character.escape.soy
+//                                   ^^ string.quoted.single.soy
+  {let $moreEscapes: 'a\taa\baa\faa\u12afaa' /}
+// ^ storage.type.soy
+//       ^ variable.soy
+//                   ^^ string.quoted.single.soy
+//                     ^^ constant.character.escape.soy
+//                       ^^ string.quoted.single.soy
+//                         ^^ constant.character.escape.soy
+//                           ^^ string.quoted.single.soy
+//                             ^^ constant.character.escape.soy
+//                               ^^ string.quoted.single.soy
+//                                 ^^^^^^ constant.character.escape.soy
+//                                       ^^^ string.quoted.single.soy
 
   {let $myList: [
 // ^ storage.type.soy
@@ -233,7 +252,10 @@
     type="hidden"
     name="{$hiddenInputName ? $hiddenInputName : ''}"
 //                ^ variable.other.soy
+//                          ^ keyword.operator.soy
 //                             ^ variable.other.soy
+//                                             ^ keyword.operator.soy
+//                                               ^ string.quoted.single.soy
   />
 {/template}
 // ^ storage.type.soy
