@@ -356,7 +356,7 @@
     "param": {
       "patterns": [
         {
-          "begin": "{(param)\\s+(\\w+\\:)",
+          "begin": "{(param)\\s+(\\w+\\s*\\:)",
           "beginCaptures": {
             "1": {
               "name": "storage.type.soy"

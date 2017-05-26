@@ -186,6 +186,16 @@
   {call OtherNamespace.Template}
 //  ^ storage.type.function.soy
 //        ^ entity.name.function.soy
+    {param count : 23 /}
+//    ^ storage.type.soy
+//         ^^^^^ variable.parameter.soy
+//                 ^ language.constant.numeric.soy
+  {/call}
+//  ^ storage.type.function.soy
+
+  {call OtherNamespace.Template}
+//  ^ storage.type.function.soy
+//        ^ entity.name.function.soy
     {param count: 23 /}
 //    ^ storage.type.soy
 //          ^ variable.parameter.soy
