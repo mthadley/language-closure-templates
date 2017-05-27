@@ -462,7 +462,7 @@
     "let": {
       "patterns": [
         {
-          "begin": "{(let)\\s+(\\$\\w+:)",
+          "begin": "{(let)\\s+(\\$\\w+\\s*:)",
           "beginCaptures": {
             "1": {
               "name": "storage.type.soy"
