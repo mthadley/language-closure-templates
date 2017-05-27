@@ -428,7 +428,7 @@
       },
       "patterns": [
         {
-          "begin": "{(@param)(\\??)\\s+(\\S+:)",
+          "begin": "{(@param)(\\??)\\s+(\\S+\\s*:)",
           "beginCaptures": {
             "1": {
               "name": "keyword.parameter.soy"
