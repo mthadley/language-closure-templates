@@ -1,6 +1,6 @@
 {
   "name": "language-closure-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Support for closure template (Soy) syntax highlighting",
   "repository": "https://github.com/mthadley/language-closure-templates",
   "license": "MIT",
