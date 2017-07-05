@@ -1,0 +1,7 @@
+{
+    ".text.html.soy": {
+        "editor": {
+            "commentStart": "//"
+        }
+    }
+}
